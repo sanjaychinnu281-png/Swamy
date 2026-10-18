@@ -1,17 +1,13 @@
 [phases.setup]
-# Retain python311, but remove the pip package that caused the error
 nixPkgs = ["python311", "gcc", "openssl"]
 
 [phases.install]
 cmds = [
-  # 1. Download the official get-pip.py script
-  "curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py",
-  # 2. Use python to directly execute the script to install pip (bypassing the missing pip module problem)
-  "python get-pip.py",
-  # 3. Use the newly installed pip to install project dependencies
-  "python -m pip install -r requirements.txt"
+  "python -m venv /opt/venv",
+  "source /opt/venv/bin/activate",
+  "pip install --upgrade pip",
+  "pip install -r requirements.txt"
 ]
 
 [start]
-# Ensure the startup command points to the correct main.py
-cmd = "python main.py"
+cmd = "source /opt/venv/bin/activate && python main.py"
