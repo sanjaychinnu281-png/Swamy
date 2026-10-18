@@ -109,15 +109,15 @@ bot_state = BotState()
 
 # ==================== HTTP HANDLERS ====================
 
-# Changed to look for index.html in the root folder instead of templates/
-TEMPLATE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "index.html")
+# FIXED: Now correctly points to the "templates" folder where your index.html is located
+TEMPLATE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "templates", "index.html")
 
 async def handle_index(request: web.Request) -> web.Response:
     if os.path.exists(TEMPLATE_PATH):
         with open(TEMPLATE_PATH, "r", encoding="utf-8") as f:
             content = f.read()
     else:
-        content = "<h1>index.html not found in the root directory!</h1>"
+        content = "<h1>templates/index.html not found! Please check your GitHub repository structure.</h1>"
     return web.Response(text=content, content_type="text/html", charset="utf-8")
 
 
