@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BG | FreeFire Level Up Bot</title>
+<title>CHINNU TEAM | FreeFire Level Up Bot</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -565,14 +565,11 @@ body { background: var(--bg); color: var(--text); overflow-x: hidden; font-size:
   <div class="nav-brand">
     <div class="nav-logo"><i class="fa-solid fa-bolt"></i></div>
     <div>
-      <h2>BG</h2>
+      <h2>CHINNU TEAM</h2>
       <span>Level Up Bot</span>
     </div>
   </div>
-  <div class="nav-actions">
-    <button class="nav-btn" onclick="openAuth('login')">Login</button>
-    <button class="nav-btn primary" onclick="openAuth('register')">Sign Up</button>
-  </div>
+  <!-- Login and Signup buttons removed -->
 </nav>
 
 <!-- ================= HOME PAGE ================= -->
@@ -582,25 +579,17 @@ body { background: var(--bg); color: var(--text); overflow-x: hidden; font-size:
     <!-- HERO -->
     <section class="hero">
       <div class="hero-badge"><span class="dot"></span> System Live · Safe Multi-Match Engine</div>
-      <h1>FreeFire Level Up Bot<br>by BG</h1>
+      <h1>FreeFire Level Up Bot<br>by CHINNU TEAM</h1>
       <p class="lead">
         The most advanced, secure, and fully automated FreeFire level-up bot dashboard.
         Add your account, start the bot, and watch your EXP, level, and matches grow in real-time.
         Built with persistent device IDs, Cloudflare DNS, and TRUE parallel match engine.
       </p>
-      <div class="hero-cta">
-        <button class="cta-btn primary" onclick="openAuth('register')">
-          <i class="fa-solid fa-user-plus"></i> Create Free Account
-        </button>
-        <button class="cta-btn ghost" onclick="openAuth('login')">
-          <i class="fa-solid fa-right-to-bracket"></i> Login to Dashboard
-        </button>
-      </div>
     </section>
 
     <!-- FEATURES -->
     <section class="features-title">
-      <h2>Why Choose BH?</h2>
+      <h2>Why Choose CHINNU TEAM?</h2>
       <p>Powerful features built for performance, safety, and simplicity.</p>
     </section>
 
@@ -641,7 +630,7 @@ body { background: var(--bg); color: var(--text); overflow-x: hidden; font-size:
     <section class="big-info">
       <h2>Everything You Need to Level Up Faster</h2>
       <p>
-        BG Bot supports both <b>Guest UID + Password</b> and <b>Access Token</b> login methods.
+        CHINNU TEAM Bot supports both <b>Guest UID + Password</b> and <b>Access Token</b> login methods.
         Just add your FreeFire account, click Start, and our engine handles the rest — searching matches,
         joining lobbies, completing rounds, and tracking every single EXP gained.
       </p>
@@ -716,7 +705,7 @@ body { background: var(--bg); color: var(--text); overflow-x: hidden; font-size:
     </section>
 
     <div class="footer">
-      © 2025 <b>BG</b> · FreeFire Level Up Bot · All Rights Reserved
+      © 2025 <b>CHINNU TEAM</b> · FreeFire Level Up Bot · All Rights Reserved
     </div>
 
   </div>
@@ -757,7 +746,7 @@ body { background: var(--bg); color: var(--text); overflow-x: hidden; font-size:
       <div class="auth-head">
         <div class="icon"><i class="fa-solid fa-user-plus"></i></div>
         <h2>Create Account</h2>
-        <p>Join BG and start leveling up</p>
+        <p>Join CHINNU TEAM and start leveling up</p>
       </div>
       <form onsubmit="handleRegister(event)">
         <div class="auth-field">
@@ -795,7 +784,7 @@ body { background: var(--bg); color: var(--text); overflow-x: hidden; font-size:
     <div class="side-brand">
       <div class="side-logo"><i class="fa-solid fa-bolt"></i></div>
       <div>
-        <h2>BG</h2>
+        <h2>CHINNU TEAM</h2>
         <span>Level Up Bot</span>
       </div>
     </div>
@@ -809,10 +798,10 @@ body { background: var(--bg); color: var(--text); overflow-x: hidden; font-size:
     </nav>
     <div class="side-foot">
       <div class="user-chip">
-        <div class="user-av" id="user-av">U</div>
+        <div class="user-av" id="user-av">C</div>
         <div class="user-info">
-          <h4 id="user-name">User</h4>
-          <span id="user-email">user@mail.com</span>
+          <h4 id="user-name">CHINNU TEAM</h4>
+          <span id="user-email">admin@chinnuteam.com</span>
         </div>
       </div>
       <button class="side-btn logout" onclick="handleLogout()">
@@ -1052,7 +1041,7 @@ function enterApp() {
 
   document.getElementById('user-name').textContent = session.name || session.username;
   document.getElementById('user-email').textContent = session.email;
-  document.getElementById('user-av').textContent = (session.name || session.username || 'U').charAt(0).toUpperCase();
+  document.getElementById('user-av').textContent = (session.name || session.username || 'C').charAt(0).toUpperCase();
 
   fetchStats();
   if (window._statsInt) clearInterval(window._statsInt);
@@ -1290,14 +1279,16 @@ setInterval(() => {
 
 /* ================= INIT ================= */
 (function init() {
-  const s = localStorage.getItem(LS_SESSION);
-  if (s) {
-    try {
-      const p = JSON.parse(s);
-      if (p && p.username) enterApp();
-    } catch {}
-  }
+  // Bypass Login: Automatically create a fake session and enter the app
+  const fakeSession = {
+    name: "CHINNU TEAM",
+    username: "admin",
+    email: "admin@chinnuteam.com",
+    loginAt: Date.now()
+  };
+  localStorage.setItem(LS_SESSION, JSON.stringify(fakeSession));
+  enterApp();
 })();
 </script>
 </body>
-            </html>
+</html>
